@@ -1,6 +1,11 @@
+import CountryDataContextProvider from "./store/country-data";
+
 const App = () => {
+
 	return (
-		<h1>Hello from React.js</h1>
+		<CountryDataContextProvider>
+			<h1>Hello from React.js</h1>
+		</CountryDataContextProvider>
 	);
 }
 
