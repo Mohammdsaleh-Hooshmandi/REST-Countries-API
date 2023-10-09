@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./Theme/GlobalStyle";
 import CountryDataContextProvider from "./store/country-data";

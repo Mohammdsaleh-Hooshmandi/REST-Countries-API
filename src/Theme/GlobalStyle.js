@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
     }
+
+    body {
+        background-color: ${p => p.theme.color_3};
+    }
 `;
 
 export default GlobalStyle;

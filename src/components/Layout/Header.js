@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
     padding: 0 5%;
     background-color: ${p => p.theme.color_2};
     color: ${p => p.theme.color_1};
-    box-shadow: 2px 0 10px #ddd;
+    box-shadow: 2px 0 10px ${p => p.theme.color_4};
 
     > h1 {
         font-size: 3rem;

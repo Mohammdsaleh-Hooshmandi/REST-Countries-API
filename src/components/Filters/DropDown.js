@@ -8,7 +8,7 @@ const Wrapper = styled.div`
         font-size: 1.6rem;
         font-weight: 600;
         cursor: pointer;
-        box-shadow: 2px 0 15px #ddd;
+        box-shadow: 2px 0 10px ${p => p.theme.color_4};
         border-radius: 4px;
         background-color: ${p => p.theme.color_2};
         color: ${p => p.theme.color_1};
@@ -24,7 +24,7 @@ const List = styled.ul`
     padding: .5rem;
     background-color: ${p => p.theme.color_2};
     color: ${p => p.theme.color_1};
-    box-shadow: 2px 0 15px #ddd;
+    box-shadow: 2px 0 10px ${p => p.theme.color_4};
 
     > li {
         font-size: 1.4rem;

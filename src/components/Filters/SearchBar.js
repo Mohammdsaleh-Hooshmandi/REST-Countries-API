@@ -21,7 +21,7 @@ const Input = styled.input`
 `;
 
 const InputWrapper = styled.div`
-    box-shadow: 2px 0 15px #ddd;
+    box-shadow: 2px 0 10px ${p => p.theme.color_4};
     padding: 1rem;
     border-radius: 5px;
     background-color: ${p => p.theme.color_2};
