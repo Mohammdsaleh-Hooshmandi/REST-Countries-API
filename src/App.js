@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./Theme/GlobalStyle";
+import MainWrapper from "./components/Layout/MainWrapper";
 import CountryDataContextProvider from "./store/country-data";
 import CountriesList from "./components/CountriesList";
 import Header from "./components/Layout/Header";
@@ -28,7 +29,7 @@ const App = () => {
 		<ThemeProvider theme={{ ...themeColor, changeTheme: themeChangeHandler }}>
 			<GlobalStyle />
 			<Header />
-			<main>
+			<MainWrapper>
 				<FiltersWrapper
 					onFilterByName={filterByName}
 					onFilterByRegion={filterByRegion}
@@ -36,7 +37,7 @@ const App = () => {
 				<CountryDataContextProvider>
 					<CountriesList filters={filters} />
 				</CountryDataContextProvider>
-			</main>
+			</MainWrapper>
 		</ThemeProvider>
 	);
 }
