@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
     > button {
+        width: 20rem;
         border: none;
         padding: 1rem 3rem;
         font-size: 1.6rem;

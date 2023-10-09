@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { countryDataContext } from "../store/country-data";
 import CountriesListItem from "./CountriesListItem";
 
-const List = styled.ul``;
+const List = styled.ul`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+`;
 
 const CountriesList = ({ filters }) => {
     const data = useContext(countryDataContext);
