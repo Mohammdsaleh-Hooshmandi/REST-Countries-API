@@ -10,11 +10,18 @@ const App = () => {
 		console.log(name);
 	};
 
+	const filterByRegion = region => {
+		console.log(region);
+	};
+
 	return (
 		<Fragment>
 			<Header />
 			<main>
-				<FiltersWrapper onFilterByName={filterByName} />
+				<FiltersWrapper
+					onFilterByName={filterByName}
+					onFilterByRegion={filterByRegion}
+				/>
 				<CountryDataContextProvider>
 					<CountriesList />
 				</CountryDataContextProvider>
