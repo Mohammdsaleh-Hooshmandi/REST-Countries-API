@@ -1,9 +1,42 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+    > button {
+        border: none;
+        padding: 1rem 3rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 2px 0 15px #ddd;
+        border-radius: 4px;
+        background-color: ${p => p.theme.color_2};
+        color: ${p => p.theme.color_1};
+    }
+`;
 
-const List = styled.ul``;
+const List = styled.ul`
+    width: 17.5rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: .5rem;
+    background-color: ${p => p.theme.color_2};
+    color: ${p => p.theme.color_1};
+    box-shadow: 2px 0 15px #ddd;
+
+    > li {
+        font-size: 1.4rem;
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover,
+        &:active {
+            font-weight: 800;
+        }
+    }
+`;
 
 const DropDown = props => {
     const [isOpen, setIsOpen] = useState(false);
