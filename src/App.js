@@ -1,17 +1,19 @@
-import { Fragment } from "react";
+
+import { Fragment, useState } from "react";
 import CountryDataContextProvider from "./store/country-data";
 import CountriesList from "./components/CountriesList";
 import Header from "./components/Layout/Header";
 import FiltersWrapper from "./components/Filters/FiltersWrapper";
 
 const App = () => {
+	const [filters, setFilters] = useState({ region: 'all', name: '' })
 
 	const filterByName = name => {
-		console.log(name);
+		setFilters(prevFilters => ({ ...prevFilters, name: name.toLowerCase() }));
 	};
 
 	const filterByRegion = region => {
-		console.log(region);
+		setFilters(prevFilters => ({ ...prevFilters, region: region }));
 	};
 
 	return (
@@ -23,7 +25,7 @@ const App = () => {
 					onFilterByRegion={filterByRegion}
 				/>
 				<CountryDataContextProvider>
-					<CountriesList />
+					<CountriesList filters={filters} />
 				</CountryDataContextProvider>
 			</main>
 		</Fragment>

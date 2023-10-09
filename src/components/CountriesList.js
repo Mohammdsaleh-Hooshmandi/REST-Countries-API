@@ -5,10 +5,15 @@ import CountriesListItem from "./CountriesListItem";
 
 const List = styled.ul``;
 
-const CountriesList = () => {
+const CountriesList = ({ filters }) => {
     const data = useContext(countryDataContext);
 
-    const listItems = data.map(country => <CountriesListItem key={country.flag} country={country} />);
+
+    let listItems;
+    if (filters.region === 'all')
+        listItems = data.map(country => <CountriesListItem key={country.flag} country={country} />);
+    else
+        listItems = data.filter(country => country.region === filters.region).filter(country => country.name.common.toLowerCase().includes(filters.name)).map(country => <CountriesListItem key={country.flag} country={country} />);
 
     return (
         <List>

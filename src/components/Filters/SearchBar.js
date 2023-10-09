@@ -15,7 +15,7 @@ const SearchBar = props => {
     useEffect(() => {
         const timer = setTimeout(() => {
             props.onUserInput(enteredName);
-        }, 1000);
+        }, 500);
 
         return () => clearTimeout(timer);
     }, [enteredName]);
