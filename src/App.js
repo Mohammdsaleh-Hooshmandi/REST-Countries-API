@@ -1,5 +1,5 @@
-
 import { Fragment, useState } from "react";
+import GlobalStyle from "./Theme/GlobalStyle";
 import CountryDataContextProvider from "./store/country-data";
 import CountriesList from "./components/CountriesList";
 import Header from "./components/Layout/Header";
@@ -18,6 +18,7 @@ const App = () => {
 
 	return (
 		<Fragment>
+			<GlobalStyle />
 			<Header />
 			<main>
 				<FiltersWrapper
