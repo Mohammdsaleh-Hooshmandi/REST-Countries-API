@@ -1,10 +1,26 @@
-import styled from "styled-components";
+import { useContext, useState } from "react";
+import styled, { ThemeContext } from "styled-components";
 
 const HeaderContainer = styled.header``;
 
-const ToggleThemeBtn = styled.button``;
+const ToggleThemeBtn = styled.button`
+    ${p => console.log(p.theme)}
+`;
 
 const Header = () => {
+    const [mode, setMode] = useState({ icon: 'fa-solid fa-moon', name: 'Dark Mode' });
+    const { changeTheme, id } = useContext(ThemeContext);
+
+    const themeChangeHandler = () => {
+        changeTheme();
+        if (id === 'light') {
+            setMode({ icon: 'fa-solid fa-sun', name: 'Light Mode' });
+            return;
+        }
+        if (id === 'dark') {
+            setMode({ icon: 'fa-solid fa-moon', name: 'Dark Mode' });
+        }
+    };
 
     return (
         <HeaderContainer>
@@ -12,9 +28,10 @@ const Header = () => {
 
             <ToggleThemeBtn
                 type="button"
+                onClick={themeChangeHandler}
             >
-                <i className="fa-solid fa-moon" />
-                Darke Mode
+                <i className={mode.icon} />
+                {mode.name}
             </ToggleThemeBtn>
         </HeaderContainer>
     );
