@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { countryDataContext } from "../store/country-data";
 import CountriesListItem from "./CountriesListItem";
+import ShowError from "./UI/ShowError";
 
 const List = styled.ul`
     width: 100%;
@@ -12,6 +13,8 @@ const List = styled.ul`
 
 const CountriesList = ({ filters }) => {
     const data = useContext(countryDataContext);
+
+    if (typeof data === 'string') return <ShowError>{data}</ShowError>;
 
 
     let listItems;

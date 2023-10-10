@@ -7,7 +7,10 @@ const CountryDataContextProvider = props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(API_URL).then(response => response.json()).then(data => setData(data));
+        fetch(API_URL).then(response => {
+            if (!response.ok) throw new Error(`${response.status}Error`)
+            return response.json()
+        }).then(data => setData(data)).catch(error => setData(error.message + ', Try Again...'));
     }, []);
 
     return (
