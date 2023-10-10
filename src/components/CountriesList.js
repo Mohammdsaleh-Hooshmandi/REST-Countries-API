@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { countryDataContext } from "../store/country-data";
 import CountriesListItem from "./CountriesListItem";
 import ShowError from "./UI/ShowError";
+import Loader from "./UI/Loader";
 
 const List = styled.ul`
     width: 100%;
@@ -15,6 +16,8 @@ const CountriesList = ({ filters }) => {
     const data = useContext(countryDataContext);
 
     if (typeof data === 'string') return <ShowError>{data}</ShowError>;
+
+    if (data.length === 0) return <Loader />;
 
 
     let listItems;
