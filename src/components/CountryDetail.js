@@ -104,7 +104,7 @@ const CountryDetail = () => {
 
     useEffect(() => {
         setIsDataLoading(true);
-        fetch(`https://restcountries.com/v3.1/name/${countryName}`)
+        fetch(`https://restcountries.com/v3.1/name/${countryName === 'REST-Countries-API' ? 'iran' : countryName}`)
             .then(response => {
                 if (!response.ok) throw new Error(`${response.status}Error`);
                 return response.json();
