@@ -101,7 +101,6 @@ const CountryDetail = () => {
     const [datailData, setDetailData] = useState(null);
     const [isDataLoading, setIsDataLoading] = useState(false);
     const { countryName } = useParams();
-    console.log(datailData);
 
     useEffect(() => {
         setIsDataLoading(true);

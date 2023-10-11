@@ -1,7 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import RootLayout from './Root';
 import HomePage from './Home';
-import DetailPage from './Detail';
+
+const DetailPage = lazy(() => import('./Detail'));
 
 const router = createBrowserRouter([
     {
@@ -9,7 +11,7 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         children: [
             { index: true, element: <HomePage /> },
-            { path: '/:countryName', element: <DetailPage /> }
+            { path: '/:countryName', element: <Suspense><DetailPage /></Suspense> }
         ]
     }
 ]);
