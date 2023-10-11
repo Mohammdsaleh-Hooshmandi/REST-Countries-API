@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const ListItem = styled.li`
     width: 28rem;
-    margin-top: 4rem;
     background-color: ${p => p.theme.color_2};
     color: ${p => p.theme.color_1};
     box-shadow: 2px 0 10px ${p => p.theme.color_4};

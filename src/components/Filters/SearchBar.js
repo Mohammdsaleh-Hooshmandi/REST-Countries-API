@@ -18,9 +18,15 @@ const Input = styled.input`
     &:focus {
         outline: none;
     }
+
+    @media (max-width: 556px) {
+        width: 27rem;
+    }
 `;
 
 const InputWrapper = styled.div`
+    display: flex;
+    align-items: center;
     box-shadow: 2px 0 10px ${p => p.theme.color_4};
     padding: 1rem;
     border-radius: 5px;
