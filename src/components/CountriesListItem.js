@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ListItem = styled.li`
     width: 28rem;
@@ -36,21 +37,27 @@ const ListItem = styled.li`
     }
 `;
 
+const DetailLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const CountriesListItem = ({ country }) => {
 
     return (
-        <ListItem>
-            <img src={country.flags.png} alt={country.flags.alt} />
+        <DetailLink to={country.name.common}>
+            <ListItem>
+                <img src={country.flags.png} alt={country.flags.alt} />
 
-            <div>
-                <h2 className="coutry-name">{country.name.common}</h2>
-                <ul>
-                    <li><span>Population:</span> {country.population}</li>
-                    <li><span>Region:</span> {country.region}</li>
-                    <li><span>Capital:</span> {country.capital}</li>
-                </ul>
-            </div>
-        </ListItem>
+                <div>
+                    <h2 className="coutry-name">{country.name.common}</h2>
+                    <ul>
+                        <li><span>Population:</span> {country.population}</li>
+                        <li><span>Region:</span> {country.region}</li>
+                        <li><span>Capital:</span> {country.capital}</li>
+                    </ul>
+                </div>
+            </ListItem>
+        </DetailLink>
     );
 };
 
