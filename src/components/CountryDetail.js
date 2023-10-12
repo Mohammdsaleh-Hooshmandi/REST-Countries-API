@@ -104,7 +104,7 @@ const CountryDetail = () => {
 
     useEffect(() => {
         setIsDataLoading(true);
-        fetch(`https://restcountries.com/v3.1/name/${countryName === 'REST-Countries-API' ? 'iran' : countryName}`)
+        fetch(`https://restcountries.com/v3.1/name/${countryName}`)
             .then(response => {
                 if (!response.ok) throw new Error(`${response.status}Error`);
                 return response.json();
@@ -124,7 +124,7 @@ const CountryDetail = () => {
 
             {!isDataLoading && datailData &&
                 <div>
-                    <BackLink to='/'>Back</BackLink>
+                    <BackLink to='/REST-Countries-API'>Back</BackLink>
                     <ContentsWrapper>
                         <img src={datailData.flags.png} alt={datailData.flags.alt} />
 
@@ -150,7 +150,7 @@ const CountryDetail = () => {
                                 <div>
                                     {
                                         datailData?.borders ?
-                                            datailData?.borders.map(border => <BorderLink to={`/${border}`} key={border}>{border}</BorderLink>)
+                                            datailData?.borders.map(border => <BorderLink to={`/REST-Countries-API/${border}`} key={border}>{border}</BorderLink>)
                                             :
                                             'This country has no borders'
                                     }

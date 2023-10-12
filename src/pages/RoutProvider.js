@@ -7,11 +7,11 @@ const DetailPage = lazy(() => import('./Detail'));
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/REST-Countries-API',
         element: <RootLayout />,
         children: [
             { index: true, element: <HomePage /> },
-            { path: '/:countryName', element: <Suspense><DetailPage /></Suspense> }
+            { path: '/REST-Countries-API/:countryName', element: <Suspense><DetailPage /></Suspense> }
         ]
     }
 ]);
