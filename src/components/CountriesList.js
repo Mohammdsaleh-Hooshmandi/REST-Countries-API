@@ -33,12 +33,22 @@ const CountriesList = ({ filters }) => {
 
     if (data.length === 0) return <Loader />;
 
-
     let listItems;
-    if (filters.region === 'all')
+    if (filters.region !== 'all' && filters.name === '')
+        listItems = data.filter(country => country.region === filters.region)
+            .map(country => <CountriesListItem key={country.flag} country={country} />);
+
+    if (filters.region !== 'all' && filters.name !== '')
+        listItems = data.filter(country => country.region === filters.region)
+            .filter(country => country.name.common.toLowerCase().includes(filters.name))
+            .map(country => <CountriesListItem key={country.flag} country={country} />);
+
+    if (filters.region === 'all' && filters.name !== '')
+        listItems = data.filter(country => country.name.common.toLowerCase().includes(filters.name))
+            .map(country => <CountriesListItem key={country.flag} country={country} />);
+
+    if (filters.region === 'all' && filters.name === '')
         listItems = data.map(country => <CountriesListItem key={country.flag} country={country} />);
-    else
-        listItems = data.filter(country => country.region === filters.region).filter(country => country.name.common.toLowerCase().includes(filters.name)).map(country => <CountriesListItem key={country.flag} country={country} />);
 
     return (
         <List>
