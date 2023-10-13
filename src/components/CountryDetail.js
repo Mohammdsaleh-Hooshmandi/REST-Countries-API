@@ -139,8 +139,8 @@ const CountryDetail = () => {
                                     <li><span>Capital:</span>{datailData.capital}</li>
                                 </div>
                                 <div>
-                                    <li><span>Top Level Domian:</span>{datailData.tld.at(0)}</li>
-                                    <li><span>Currencies:</span>{datailData?.currencies && Object.keys(datailData?.currencies).at(0)}</li>
+                                    <li><span>Top Level Domian:</span>{datailData.tld[0]}</li>
+                                    <li><span>Currencies:</span>{datailData?.currencies && Object.keys(datailData?.currencies)[0]}</li>
                                     <li><span>Languages:</span>{datailData?.languages && Object.values(datailData?.languages).map(language => `${language}, `)}</li>
                                 </div>
                             </DetailsList>
